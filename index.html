@@ -208,6 +208,21 @@
     transform: none !important;
   }
 }
+#botao-musica {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #b30000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
 
 
 
@@ -252,10 +267,12 @@
 <div class="caixa-foto" id="caixa-foto3" style="display: none;">
   <img src="asdas.png" alt="Foto especial 3" />
 </div>
-<audio id="musica-fundo" autoplay loop hidden>
+<audio id="musica-fundo" loop hidden>
   <source src="Elvis Presley - Can't Help Falling In Love (Official Audio).mp3" type="audio/mpeg">
   Seu navegador não suporta áudio HTML5.
 </audio>
+<button id="botao-musica">Tocar Música 🎵</button>
+
 
 
 
@@ -325,6 +342,34 @@
 
     // Criar corações caindo continuamente
     setInterval(criarCoracaoCaindo, 500);
+    // Botão para tocar música
+    const audio = document.getElementById("musica-fundo");
+const botaoMusica = document.getElementById("botao-musica");
+
+function tocarMusica() {
+  audio.play().then(() => {
+    botaoMusica.style.display = "none";
+  }).catch(() => {
+    botaoMusica.style.display = "block";
+  });
+}
+
+// Tenta tocar assim que a página for carregada
+window.addEventListener('load', () => {
+  tocarMusica();
+
+  // Garante que qualquer clique em qualquer parte da página também tente
+  document.body.addEventListener('click', tocarMusica, { once: true });
+});
+
+// Botão manual (caso o usuário veja o botão)
+botaoMusica.addEventListener("click", () => {
+  audio.play();
+  botaoMusica.style.display = "none";
+});
+
+
+
   </script>
 
 </body>
