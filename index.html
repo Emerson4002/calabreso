@@ -157,7 +157,7 @@
 }
 
 #caixa-foto3 {
-  left: 30%;
+  left: 38%;
   transform: translateX(-50%);
   bottom: 50px;
 }
@@ -166,6 +166,12 @@
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+  }
+  .container-fotos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* espaçamento entre as fotos */
   }
 
   #gif-inferior, #img-parada {
@@ -257,16 +263,18 @@
 </div>
 
 
-<div class="caixa-foto" id="caixa-foto" style="display: none;">
-  <img src="photo_2025-04-08_16-33-11.jpg" alt="Minha Calabreso" />
-</div>
-<div class="caixa-foto" id="caixa-foto2" style="display: none;">
-  <img src="photo_2025-05-02_03-28-40.jpg" alt="Foto especial 2" />
+<<div class="container-fotos" id="container-fotos" style="display: none;">
+  <div class="caixa-foto" id="caixa-foto">
+    <img src="photo_2025-04-08_16-33-11.jpg" alt="Minha Calabreso" />
+  </div>
+  <div class="caixa-foto" id="caixa-foto2">
+    <img src="photo_2025-05-02_03-28-40.jpg" alt="Foto especial 2" />
+  </div>
+  <div class="caixa-foto" id="caixa-foto3">
+    <img src="asdas.png" alt="Foto especial 3" />
+  </div>
 </div>
 
-<div class="caixa-foto" id="caixa-foto3" style="display: none;">
-  <img src="asdas.png" alt="Foto especial 3" />
-</div>
 <audio id="musica-fundo" loop hidden>
   <source src="Elvis Presley - Can't Help Falling In Love (Official Audio).mp3" type="audio/mpeg">
   Seu navegador não suporta áudio HTML5.
@@ -317,9 +325,7 @@
       imgParada.style.display = "block";
       mensagem.style.opacity = 1;
       document.getElementById("cartao").style.display = "block";
-      document.getElementById("caixa-foto").style.display = "block";
-      document.getElementById("caixa-foto2").style.display = "block";
-      document.getElementById("caixa-foto3").style.display = "block";
+      document.getElementById("container-fotos").style.display = "flex";
 
     }, 8600);
 
