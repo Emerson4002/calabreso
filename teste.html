@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Minha Calabreso ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #gif-inferior, #img-parada {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      width: 500px;
+    }
+
+    #img-parada {
+      display: none;
+    }
+
+    .conteudo {
+      text-align: center;
+      opacity: 0;
+      transition: opacity 2s ease;
+    }
+
+    .heart-shape {
+      position: relative;
+      width: 300px;
+      height: 270px;
+      margin: 0 auto;
+      transform: scale(1.2);
+    }
+
+    .heart-shape span {
+      position: absolute;
+      font-size: 24px;
+      animation: pulse 1s infinite alternate;
+      user-select: none;
+    }
+
+    .texto {
+      font-size: 38px;
+      color: #b30000;
+      font-weight: bold;
+      margin-top: 40px;
+    }
+
+    .mensagem {
+      font-size: 20px;
+      color: #4d0000;
+      max-width: 600px;
+      margin-top: 15px;
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.3);
+      }
+    }
+
+    /* Corações caindo */
+    .falling-heart {
+      position: absolute;
+      top: -30px;
+      font-size: 22px;
+      animation: fall linear infinite;
+      user-select: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+    .cartao-poema {
+        position: absolute;
+        right: 50px;
+        top: 80px;
+        width: 300px;
+        padding: 20px;
+        background: #fff4f4;
+        border: 2px solid #b30000;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        animation: flutuar 3s ease-in-out infinite alternate;
+        font-size: 16px;
+        color: #4d0000;
+        line-height: 1.5;
+}
+
+@keyframes flutuar {
+  from { transform: translateY(0); }
+  to { transform: translateY(-10px); }
+}
+.caixa-foto {
+  position: absolute;
+  left: 50px;
+  top: 80px;
+  width: 180px;
+  height: 180px;
+  background: #fff4f4;
+  border: 2px solid #b30000;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: flutuar 3s ease-in-out infinite alternate;
+}
+
+.caixa-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Já existente */
+.caixa-foto {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: #fff4f4;
+  border: 2px solid #b30000;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: flutuar 3s ease-in-out infinite alternate;
+}
+
+.caixa-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Posições personalizadas */
+#caixa-foto {
+  left: 50px;
+  top: 80px;
+}
+
+#caixa-foto2 {
+  right: 50px;
+  left: 500px;
+}
+
+#caixa-foto3 {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50px;
+}
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  #gif-inferior, #img-parada {
+    position: relative;
+    width: 90%;
+    max-width: 320px;
+    left: 0;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .texto {
+    font-size: 6vw;
+  }
+
+  .mensagem {
+    font-size: 4.5vw;
+    max-width: 90vw;
+    padding: 0 10px;
+  }
+
+  .cartao-poema {
+    position: relative;
+    width: 90%;
+    max-width: 320px;
+    margin: 20px auto;
+    right: 0;
+    top: 0;
+  }
+
+  .caixa-foto {
+    position: relative !important;
+    width: 160px;
+    height: 160px;
+    margin: 10px auto;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    transform: none !important;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- GIF e imagem estática -->
+  <img id="gif-inferior" src="calbreso.gif" alt="Calabreso apontando">
+  <img id="img-parada" src="calbreso-parado.png" alt="Calabreso parado">
+
+  <!-- Conteúdo que aparece depois -->
+  <div class="conteudo" id="mensagem">
+    <!-- Corações serão adicionados via JS aqui -->
+
+    <div class="texto">Eu te amo Calabreso</div>
+    <div class="mensagem">
+      Oi, meu bem. Isso é algo simples, mas foi feito com carinho. <br>
+       Espero que as coisas que estão acontecendo melhorem e que a gente possa ficar cada dia mais próximo. ❤️ 💘
+    </div>
+  </div>
+  <div class="cartao-poema" id="cartao" style="display: none;">
+  Sinto sua falta em cada segundo,<br>
+  Você é meu refúgio, meu mundo.<br>
+  No silêncio dessa tarde fria,<br>
+  O que aquece é sua lembrança, sua companhia.<br><br>
+
+  Como seria bom te ter aqui comigo,<br>
+  Debaixo do cobertor, rindo sem motivo.<br>
+  Tomar um café, dividir o olhar,<br>
+  Te abraçar forte, sem pressa pra soltar.
+</div>
+
+
+<div class="caixa-foto" id="caixa-foto" style="display: none;">
+  <img src="photo_2025-04-08_16-33-11.jpg" alt="Minha Calabreso" />
+</div>
+<div class="caixa-foto" id="caixa-foto2" style="display: none;">
+  <img src="photo_2025-05-02_03-28-40.jpg" alt="Foto especial 2" />
+</div>
+
+<div class="caixa-foto" id="caixa-foto3" style="display: none;">
+  <img src="asdas.png" alt="Foto especial 3" />
+</div>
+<audio id="musica-fundo" autoplay loop hidden>
+  <source src="Elvis Presley - Can't Help Falling In Love (Official Audio).mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML5.
+</audio>
+
+
+
+
+  <script>
+    // Contorno do coração
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.createElement('div');
+      container.className = "heart-shape";
+
+      const numHearts = 20;
+      for (let i = 0; i < numHearts; i++) {
+        const startAngle = -Math.PI / 2;
+        const endAngle = 3 * Math.PI / 2;
+        const angle = startAngle + ((endAngle - startAngle) * i) / numHearts;
+
+        const x = 16 * Math.pow(Math.sin(angle), 3);
+        const y = -(
+          13 * Math.cos(angle) -
+          5 * Math.cos(2 * angle) -
+          2 * Math.cos(3 * angle) -
+          Math.cos(4 * angle)
+        );
+
+        const heart = document.createElement("span");
+        heart.innerText = "❤️";
+        heart.style.left = `${150 + x * 7}px`;
+        heart.style.top = `${135 + y * 7}px`;
+        container.appendChild(heart);
+      }
+
+      document.getElementById("mensagem").prepend(container);
+    });
+
+    // Alterna gif e imagem parada
+    const gif = document.getElementById("gif-inferior");
+    const imgParada = document.getElementById("img-parada");
+    const mensagem = document.getElementById("mensagem");
+
+    setTimeout(() => {
+      gif.style.display = "none";
+      imgParada.style.display = "block";
+      mensagem.style.opacity = 1;
+      document.getElementById("cartao").style.display = "block";
+      document.getElementById("caixa-foto").style.display = "block";
+      document.getElementById("caixa-foto2").style.display = "block";
+      document.getElementById("caixa-foto3").style.display = "block";
+
+    }, 8600);
+
+    // Corações caindo
+    function criarCoracaoCaindo() {
+      const heart = document.createElement("div");
+      heart.className = "falling-heart";
+      heart.innerText = "❤️";
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${4 + Math.random() * 3}s`;
+      heart.style.fontSize = `${20 + Math.random() * 10}px`;
+
+      document.body.appendChild(heart);
+
+      // Remover após a animação
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+
+    // Criar corações caindo continuamente
+    setInterval(criarCoracaoCaindo, 500);
+  </script>
+
+</body>
+</html>
